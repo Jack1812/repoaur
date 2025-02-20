@@ -1,5 +1,5 @@
 let numeroSecreto = generarNumeroSecreto();
-
+let intentos = 1;
 
 
 function asignarTextoElemento(elemento, texto){
@@ -10,8 +10,9 @@ function asignarTextoElemento(elemento, texto){
 
 function verificarIntento(){
     let numeroDeUsuario = parseInt(document.getElementById('valorUsuario').value);
+    console.log(intentos);
     if (numeroDeUsuario === numeroSecreto){
-        asignarTextoElemento('p','¡Felicidades! Adivinaste el numero secreto');
+        asignarTextoElemento('p',`Felicidades! Adivinaste el numero secreto en ${intentos} ${intentos === 1 ? 'intento' : 'intentos'}`);
 
     }else {
         if (numeroDeUsuario > numeroSecreto) {
@@ -19,6 +20,8 @@ function verificarIntento(){
         } else {
             asignarTextoElemento('p','El numero secreto es mayor');
          }
+            intentos++;
+
     }
     return;
 }
